@@ -148,6 +148,121 @@
     ul.body-list{padding-left:24px;margin-bottom:18px}
     ul.body-list li{margin-bottom:10px;color:#2a2016}
     @media(max-width:768px){nav{padding:0 20px}.nav-links li:not(:last-child){display:none}.lecture-header{padding:48px 20px 40px}.content-wrap{padding:36px 20px 56px}.pair-grid{grid-template-columns:1fr}.criteria-row{grid-template-columns:1fr}.criteria-label{border-bottom:1px solid var(--rule)}.next-lecture{flex-direction:column;align-items:flex-start}.exam-body{padding:16px}}
+  
+    /* ── LECTURE OVERVIEW ── */
+    .overview-block {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 48px;
+      animation: fadeUp 0.5s ease both;
+      animation-delay: 0.02s;
+    }
+    .overview-header {
+      background: var(--mod);
+      padding: 14px 24px;
+      border-bottom: 3px solid var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .overview-header-icon { font-size: 1.1rem; }
+    .overview-header-title {
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: .03em;
+    }
+    .overview-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+    .overview-col {
+      padding: 18px 20px;
+      border-right: 1px solid var(--rule);
+    }
+    .overview-col:last-child { border-right: none; }
+    .overview-col-label {
+      font-size: .62rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--mod);
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-family: 'Source Serif 4', serif;
+    }
+    .overview-objectives {
+      list-style: none;
+      display: grid;
+      gap: 7px;
+    }
+    .overview-objectives li {
+      font-size: .86rem;
+      color: #2a2016;
+      line-height: 1.5;
+      padding-left: 14px;
+      position: relative;
+    }
+    .overview-objectives li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--mod);
+      font-weight: 700;
+      font-size: .78rem;
+    }
+    .overview-topics {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      counter-reset: topic-counter;
+    }
+    .overview-topics li {
+      font-size: .86rem;
+      color: #2a2016;
+      line-height: 1.5;
+      padding-left: 22px;
+      position: relative;
+      counter-increment: topic-counter;
+    }
+    .overview-topics li::before {
+      content: counter(topic-counter) '.';
+      position: absolute;
+      left: 0;
+      color: var(--mod);
+      font-weight: 700;
+      font-size: .82rem;
+    }
+    .overview-prereq {
+      font-size: .86rem;
+      color: #2a2016;
+      line-height: 1.6;
+    }
+    .prereq-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: .78rem;
+      color: var(--mod);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(31,56,100,.3);
+      transition: border-color .2s;
+    }
+    .prereq-link:hover { border-color: var(--mod); }
+    .prereq-none {
+      font-size: .82rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    @media(max-width:768px){
+      .overview-body { grid-template-columns: 1fr; }
+      .overview-col { border-right: none; border-bottom: 1px solid var(--rule); }
+      .overview-col:last-child { border-bottom: none; }
+    }
+
   </style>
 </head>
 <body>
@@ -180,6 +295,41 @@
 </div>
 
 <div class="content-wrap">
+
+  <!-- LECTURE OVERVIEW -->
+  <div class="overview-block">
+    <div class="overview-header">
+      <span class="overview-header-icon">📋</span>
+      <span class="overview-header-title">Lecture Overview</span>
+    </div>
+    <div class="overview-body">
+      <div class="overview-col">
+        <div class="overview-col-label">Learning Objectives</div>
+        <ul class="overview-objectives">
+<li>Classify vowels using the vowel quadrilateral</li>
+<li>Distinguish long and short vowel pairs</li>
+<li>Describe consonants by voicing, place, and manner</li>
+<li>Identify and use the schwa /ə/ correctly</li>
+        </ul>
+      </div>
+      <div class="overview-col">
+        <div class="overview-col-label">Topics Covered</div>
+        <ol class="overview-topics">
+<li>The Vowel Quadrilateral — Monophthongs</li>
+<li>The Long vs. Short Vowel Distinction</li>
+<li>Consonant Classification: The Three Criteria</li>
+<li>The Schwa /ə/ — The Most Important Sound</li>
+<li>Practical Activity: Minimal Pair Drill</li>
+        </ol>
+      </div>
+      <div class="overview-col">
+        <div class="overview-col-label">Prerequisite</div>
+        <p class="overview-prereq">Students should have completed Lecture 1.1 before proceeding.</p>
+        <a class="prereq-link" href="lecture-1-1.html">← Lecture 1.1 — Foundations of English Sounds</a>
+      </div>
+    </div>
+  </div>
+
 
   <!-- SECTION I -->
   <div class="section-block">
